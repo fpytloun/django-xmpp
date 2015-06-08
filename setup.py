@@ -10,14 +10,15 @@ f.close()
 
 setup(
     name='django-xmpp',
-    version='0.1',
+    version='0.2',
     description='XMPP integration for Django app made simple',
     long_description=readme,
     author="Filip Pytloun",
     author_email='filip@pytloun.cz',
     url='https://github.com/fpytloun/django-xmpp',
     license='GPLv2',
-    packages=['xmpp'],
+    packages=['xmpp', 'xmpp.templatetags', 'xmpp.management',
+              'xmpp.management.commands'],
     include_package_data=True,
     install_requires=['django', 'sleekxmpp', 'dnspython', 'pyasn1',
                       'pyasn1_modules', 'django-gravatar2'],

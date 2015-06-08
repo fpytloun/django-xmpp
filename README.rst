@@ -72,6 +72,13 @@ Optionally setup ConverseJS to suit your needs::
         }
     }
 
+Include ``xmpp.urls`` in your ``urls.py``::
+
+    urlpatterns = [
+        ...
+        url(r'^xmpp/', include("xmpp.urls")),
+    ]
+
 Use ConverseJS in your base template::
 
     {% load xmpp_tags %}
