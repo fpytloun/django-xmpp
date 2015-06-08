@@ -1,0 +1,13 @@
+{% load staticfiles %}
+
+<script type="text/javascript" src="{% static "js/converse_functions.js" %}"></script>
+{% if conversejs_settings %}
+	<script type="text/javascript" src="{% static "js/converse.min.js" %}"></script>
+	<link rel="stylesheet" href="{% static "css/converse.min.css" %}" type="text/css">
+
+	<script type="text/javascript">
+		require(['converse'], function (converse) {
+			converse.initialize({% autoescape off %}{{conversejs_settings}}{% endautoescape %});
+		});
+	</script>
+{% endif %}
