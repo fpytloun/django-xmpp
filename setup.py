@@ -10,7 +10,7 @@ f.close()
 
 setup(
     name='django-xmpp',
-    version='0.3',
+    version='0.3.1',
     description='XMPP integration for Django app made simple',
     long_description=readme,
     author="Filip Pytloun",
