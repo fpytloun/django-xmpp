@@ -119,6 +119,11 @@ XMPP_CONVERSEJS_AUTH
     Authentication type for ConverseJS (prebind is not
     supported so login is the only option)
 
+XMPP_CONVERSEJS_SETTINGS
+    dictionary of settings passed to converse.initialize.
+    For more list of available options see `Converse.js docs
+    <https://conversejs.org/docs/html/configuration.html>`_
+
 XMPP_ENABLED
     Enable or disable XMPP at all
 
