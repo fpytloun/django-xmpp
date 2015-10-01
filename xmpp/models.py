@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.conf import settings
 import datetime
 import uuid
@@ -20,7 +19,7 @@ lg = logging.getLogger(__name__)
 
 
 class XMPPAccount(models.Model):
-    user = models.ForeignKey(User, related_name='xmpp')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='xmpp')
     jid = models.CharField(max_length=300)
     password = models.CharField(max_length=1024)
     created = models.DateTimeField('created', auto_now_add=True)
