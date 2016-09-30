@@ -55,7 +55,7 @@ class Command(BaseCommand):
         self.logger.debug("Authenticating %s with password %s on server %s" % (username, password, server))
         try:
             # First try authenticating with generated webapp account password
-            xmpp_account = XMPPAccount.objects.get(user__username=username, password=password)
+            xmpp_account = XMPPAccount.objects.get(user__username__iexact=username, password=password)
             user = xmpp_account.user
             self.logger.info("Authenticated account %s with webapp XMPPAccount" % username)
         except XMPPAccount.DoesNotExist:
@@ -70,7 +70,7 @@ class Command(BaseCommand):
         """
         self.logger.debug("Validating %s on server %s" % (username, server))
         try:
-            user = get_user_model().objects.get(username=username)
+            user = get_user_model().objects.get(username__iexact=username)
             if user.is_active:
                 return True
             else:
@@ -85,7 +85,7 @@ class Command(BaseCommand):
         """
         self.logger.debug("Changing password to %s with new password %s on server %s" % (username, password, server))
         try:
-            user = get_user_model().objects.get(username=username)
+            user = get_user_model().objects.get(username__iexact=username)
             user.set_password(password)
             user.save()
             return True
