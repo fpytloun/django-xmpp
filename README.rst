@@ -136,6 +136,6 @@ XMPP_UPDATE_VCARD_HOURS
 A note on usernames
 -------------------
 
-Jabber IDs are case-insensitive (so "MyUser@domain.com" and "myuser@domain.com" are the same account). By contrast, the ``username`` field in the default Django ``User`` model is case-sensitive (see `this Django ticket <https://code.djangoproject.com/ticket/2273>`_). This means two separate "MyUser" and "myuser" accounts in Django will have the same JID on the XMPP server. The ``ejabberd_auth`` management command will not authenticate such users, and they will both see "Authentication failed" in the Converse client.
+Jabber IDs are case-insensitive (so "MyUser@domain.com" and "myuser@domain.com" are the same account). By contrast, the ``username`` field in the default Django ``User`` model is case-sensitive (see `this Django ticket <https://code.djangoproject.com/ticket/2273>`_). This means two separate "MyUser" and "myuser" accounts in Django will have the same JID on the XMPP server. The ``ejabberd_auth`` management command will not authenticate such users, and they will both see "Authentication failed" in Converse and other XMPP clients.
 
 To avoid such conflicts, it is recommended to use a custom ``User`` model that enforces unique lowercase usernames with a ``RegexField``. Other characters not allowed in a Jabber ID should be excluded as well. See `this guide <http://archive.jabber.org/userguide/#register>`_ for details.
