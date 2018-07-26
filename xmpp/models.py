@@ -19,7 +19,7 @@ lg = logging.getLogger(__name__)
 
 
 class XMPPAccount(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='xmpp')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='xmpp', on_delete=models.CASCADE)
     jid = models.CharField(max_length=300)
     password = models.CharField(max_length=1024)
     created = models.DateTimeField('created', auto_now_add=True)
@@ -88,6 +88,6 @@ class XMPPAccount(models.Model):
 
 
 class XMPPAutoJoin(models.Model):
-    account = models.ForeignKey(XMPPAccount, related_name='auto_join')
+    account = models.ForeignKey(XMPPAccount, related_name='auto_join', on_delete=models.CASCADE)
     jid = models.CharField(max_length=300)
     created = models.DateTimeField('created', auto_now_add=True)
